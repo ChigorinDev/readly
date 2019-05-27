@@ -16,6 +16,8 @@ class Movies extends Component {
   };
 
   render() {
+    const { length: count } = this.state.movies;
+
     const moviesTable = this.state.movies.map(movie => {
       return (
         <tr key={movie._id} id={movie._id}>
@@ -35,12 +37,11 @@ class Movies extends Component {
       );
     });
 
-    if (this.state.movies.length === 0)
-      return <p>There are no movies in the list</p>;
+    if (count === 0) return <p>There are no movies in the list</p>;
     return (
       <div>
         {/* {this.state.movies.length === 0 && <p>There is nothing to watch</p>} */}
-        <h2>There are {this.state.movies.length} movies in the list</h2>
+        <h2>There are {count} movies in the list</h2>
         <table className="table">
           <thead>
             <tr>
